@@ -1,11 +1,8 @@
-<div
-  class="flip-card"
-  *ngFor="let card of cards"
-  [class.flipped]="card.flipped"
-  (click)="card.flipped = !card.flipped"
->
+<div class="flip-card" *ngFor="let card of cards" [class.flipped]="card.flipped" (click)="flip(card)">
   <div class="flip-card-inner">
     <div class="flip-card-front"></div>
-    <div class="flip-card-back"></div>
+    <div class="flip-card-back" [style.background-position-x.px]="card.col * 200"
+      [style.background-position-y.px]="card.row * 200" [style.background-image]="card.url"></div>
   </div>
 </div>
+<button class="refresh" (click)="refresh()">&#x21bb;</button>
